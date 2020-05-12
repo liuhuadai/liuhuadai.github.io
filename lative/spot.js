@@ -10,7 +10,9 @@
     
     function start() {
         document.getElementById('go').removeEventListener('click', start);
-        promise.then(() => engine.toText('L'))
+        promise.then(() => engine.toText('I'))
+        .then(() => engine.shake())
+        .then(() => engine.toText('L'))
         .then(() => engine.shake())
         .then(() => engine.toText('O'))
         .then(() => engine.shake())
@@ -18,6 +20,9 @@
         .then(() => engine.shake())
         .then(() => engine.toText('E'))
         .then(() => engine.shake())
+        .then(() => engine.toText('Z'))
+        .then(() => engine.shake())
+        .then(() => engine.toText('X'))
         .then(() => engine.clear())
         .then(() => document.getElementById('go').addEventListener('click', start));
     }
