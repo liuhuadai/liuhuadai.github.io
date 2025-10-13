@@ -23,12 +23,12 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Huadai Liu"
   avatar           : "images/figure1.jpg"
-  bio              : ""
+  bio              : "Focusing on Generative AI for audio"
   location         : "China"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=-avcK5sAAAAJ"
-  email            : "liuhuadai@zju.edu.cn"
+  email            : "huadai.liu@connect.ust.hk"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
