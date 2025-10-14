@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Huadai Liu (刘华岱)"
+title                    : "Huadai Liu"
 description              : ""
 repository               : "liuhuadai/liuhuadai.github.io"
 google_scholar_stats_use_cdn : true
@@ -16,7 +16,7 @@ google_analytics_id      : -avcK5sAAAAJ # get google_analytics_id from https://a
 
 # SEO Related
 google_site_verification : sJsDIkpRDdZj3bVOheG9kN_oDr8J-5au_VwuOJp94Yo
-bing_site_verification   :  # get bing_site_verification from https://www.bing.com/webmasters/about
+bing_site_verification   :  8B4BD0C1EE0BA4CDEE62667C49C5F32B
 baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.baidu.com/login/index?u=/site/index
 
 # Site Author
