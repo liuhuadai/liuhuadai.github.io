@@ -21,7 +21,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Huadai Liu"
+  name             : "Huadai Liu (刘华岱)"
   avatar           : "images/figure1.jpg"
   bio              : "Focusing on Generative AI for audio"
   location         : "China"
