@@ -1,205 +1,182 @@
-% Public academic CV derived from the private CV_global.tex source.
-% Exact employment dates, location, title, phone number, and private email are intentionally omitted.
-\documentclass[9pt,a4paper]{extarticle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Public Academic CV - Huadai Liu
+% Based directly on the classic Overleaf CV_full_form.tex template.
+% Public version: private contact details and identifiable employment
+% dates/title/location are intentionally omitted.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[a4paper,top=14mm,bottom=14mm,left=17mm,right=17mm]{geometry}
-\usepackage{fontspec}
-\setmainfont{texgyreheros}[
-  Extension=.otf,
-  UprightFont=*-regular,
-  BoldFont=*-bold,
-  ItalicFont=*-italic,
-  BoldItalicFont=*-bolditalic
-]
-\newfontfamily\displayfont{texgyrepagella}[
-  Extension=.otf,
-  UprightFont=*-regular,
-  BoldFont=*-bold,
-  ItalicFont=*-italic,
-  BoldItalicFont=*-bolditalic
-]
-\usepackage{microtype}
-\usepackage{textcomp}
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[a4paper, margin=0.7in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{xcolor}
-\usepackage{ragged2e}
-\usepackage{tabularx}
-\usepackage{array}
+\usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage{lastpage}
+\usepackage{fontawesome5}
+\usepackage{microtype}
+\usepackage{hyperref}
 
-\definecolor{ink}{HTML}{17242D}
-\definecolor{accent}{HTML}{1C6482}
-\definecolor{accentdark}{HTML}{164A61}
-\definecolor{muted}{HTML}{65737C}
-\definecolor{quiet}{HTML}{8B979D}
-\definecolor{hairline}{HTML}{D7DFE3}
-\definecolor{wash}{HTML}{EEF4F6}
+\definecolor{textcolor}{HTML}{000000}
+\definecolor{linkcolor}{HTML}{003366}
 
-\color{ink}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=linkcolor,
+    linkcolor=linkcolor,
+    citecolor=linkcolor,
+    pdfborder={0 0 0},
+    pdftitle={Huadai Liu - Academic CV},
+    pdfauthor={Huadai Liu}
+}
+
+\pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0pt}
-\setlength{\tabcolsep}{0pt}
-\urlstyle{same}
-\raggedbottom
-\AtBeginDocument{\RaggedRight}
-\hyphenpenalty=3200
-\exhyphenpenalty=3200
-\emergencystretch=2em
 
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\fancyfoot[L]{{\fontsize{6.8}{8}\selectfont\color{quiet}HUADAI LIU \enspace·\enspace LIUHUADAI.GITHUB.IO}}
-\fancyfoot[R]{{\fontsize{6.8}{8}\selectfont\color{quiet}ACADEMIC CV \enspace·\enspace \thepage/\pageref*{LastPage}}}
-\setlength{\footskip}{8mm}
+\titleformat{\section}
+  {\large\scshape\bfseries\color{textcolor}}
+  {}{0em}{}
+  [\vspace{-0.3ex}\titlerule\vspace{0.3ex}]
+\titlespacing{\section}{0pt}{1.8ex}{0.8ex}
 
-\newcommand{\eyebrow}[1]{{\fontsize{6.8}{8}\selectfont\bfseries\addfontfeatures{LetterSpace=10}\color{accent}\MakeUppercase{#1}}}
-\newcommand{\tinylabel}[1]{{\fontsize{6.5}{7.5}\selectfont\bfseries\addfontfeatures{LetterSpace=7}\color{quiet}\MakeUppercase{#1}}}
-\newcommand{\sectionhead}[2]{%
-  \vspace{0.95ex}%
-  \begin{tabularx}{\linewidth}{@{}p{11mm}X@{}}
-    \eyebrow{#1} & {\displayfont\fontsize{15.5}{17}\selectfont\color{ink}#2}
-  \end{tabularx}%
-  \vspace{0.35ex}{\color{hairline}\hrule height 0.45pt}\vspace{0.5ex}%
-}
-\newcommand{\sidehead}[1]{%
-  \vspace{1.15ex}{\displayfont\fontsize{13.5}{15}\selectfont\color{ink}#1}\par
-  \vspace{0.35ex}{\color{hairline}\hrule height 0.45pt}\vspace{0.7ex}%
-}
-\newcommand{\lens}[2]{%
-  \tinylabel{#1}\par
-  {\fontsize{8.2}{10.6}\selectfont\color{muted}#2}\par\vspace{0.9ex}%
-}
-\newcommand{\agenda}[6]{%
-  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{9mm}X>{\raggedleft\arraybackslash}p{27mm}@{}}
-    {\displayfont\fontsize{12}{13}\selectfont\color{accent}#1} &
-    {\displayfont\fontsize{12.2}{13.8}\selectfont\bfseries #2} &
-    \eyebrow{#3}\\[-0.1ex]
-    & \multicolumn{2}{@{}l@{}}{{\fontsize{7.2}{8.4}\selectfont\itshape\color{accentdark}#4}}\\[0.25ex]
-    & \multicolumn{2}{@{}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-9mm\relax}@{}}{{\fontsize{8.05}{9.8}\selectfont\color{muted}#5 \textbf{\color{ink}#6}}}
-  \end{tabularx}%
-  \vspace{0.42ex}{\color{hairline}\hrule height 0.35pt}\vspace{0.35ex}%
-}
-\newcommand{\systemitem}[3]{%
-  \begin{minipage}[t]{0.31\linewidth}
-    \vspace{0pt}\eyebrow{#1}\par\vspace{0.35ex}
-    {\displayfont\fontsize{12.5}{13.5}\selectfont\bfseries\color{ink}#2}\par\vspace{0.3ex}
-    {\fontsize{7.35}{9.1}\selectfont\color{muted}#3}
-  \end{minipage}%
-}
-\newcommand{\publication}[5]{%
-  \eyebrow{#1 \enspace·\enspace #3}\par\vspace{0.25ex}
-  {\fontsize{8.5}{10.3}\selectfont\bfseries\href{#5}{#2}}\par
-  {\fontsize{7.2}{8.6}\selectfont\color{muted}\textbf{Huadai Liu} et al.\enspace·\enspace #4}\par\vspace{0.95ex}%
-}
-\newcommand{\metric}[3]{%
-  {\displayfont\fontsize{12.5}{13.5}\selectfont\bfseries\color{accent}#1}\hspace{0.7em}%
-  {\fontsize{8}{9.3}\selectfont\bfseries #2}\par\vspace{0.15ex}
-  {\fontsize{7.25}{9.1}\selectfont\color{muted}#3}\par\vspace{0.85ex}%
-}
-\newcommand{\sideitem}[2]{%
-  {\fontsize{7.8}{9.4}\selectfont\bfseries #1}\par
-  {\fontsize{7.35}{9.2}\selectfont\color{muted}#2}\par\vspace{0.75ex}%
-}
+\titleformat{\subsection}
+  {\normalsize\scshape\itshape}
+  {}{0em}{}
+\titlespacing{\subsection}{0pt}{1ex}{0.3ex}
 
 \begin{document}
+\color{textcolor}
 
-% Editorial masthead
-\begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{66mm}@{}}
-  {\displayfont\fontsize{30}{31}\selectfont\bfseries Huadai Liu} & \eyebrow{Public Academic CV · 2026}\\[-0.2ex]
-  {\fontsize{12.5}{15}\selectfont\color{accentdark}Generative \& Multimodal Intelligence} &
-  {\fontsize{7.4}{9}\selectfont\color{muted}\href{mailto:huadai.liu@connect.ust.hk}{Email}\enspace·\enspace\href{https://liuhuadai.github.io}{Website}\enspace·\enspace\href{https://scholar.google.com/citations?user=-avcK5sAAAAJ}{Scholar}\enspace·\enspace\href{https://github.com/liuhuadai}{GitHub}}\\
-\end{tabularx}
-\vspace{0.7ex}{\color{accent}\hrule height 1.05pt}
+%---------- HEADER ----------
+\begin{center}
+    {\LARGE\scshape\bfseries Huadai Liu}
+    \\[1ex]
+    \small
+    \faGlobe\ \href{https://liuhuadai.github.io}{liuhuadai.github.io}
+    \quad\textbar\quad
+    \faGithub\ \href{https://github.com/liuhuadai}{github.com/liuhuadai}
+    \quad\textbar\quad
+    \faGoogle\ \href{https://scholar.google.com/citations?user=-avcK5sAAAAJ}{Google Scholar}
+\end{center}
 
-\sectionhead{01}{Research profile}
-\begin{minipage}[t]{0.67\textwidth}
-  \vspace{0pt}
-  {\displayfont\fontsize{14.5}{18}\selectfont\color{ink}
-  Researcher in generative and multimodal intelligence, connecting representation learning and cross-modal reasoning with efficient generative systems.}\par\vspace{0.9ex}
-  {\fontsize{8.65}{11.5}\selectfont\color{muted}
-  My work spans speech, sound, music, and broader multimodal learning. First- and co-first-author research has appeared at NeurIPS, ICML, ICLR, ACL, EMNLP, and ACM Multimedia. I work across the research stack -- from learning objectives and model architecture to large-scale training, evaluation, and low-latency inference -- with \textbf{1,000+ citations} and widely adopted open-source releases.}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.28\textwidth}
-  \vspace{0.15ex}
-  \lens{Represent}{Continuous and structured latent spaces}
-  \lens{Reason}{Cross-modal planning and reinforcement learning}
-  \lens{Generate}{Autoregressive, flow-based, and efficient models}
-\end{minipage}
+\vspace{0.5ex}
 
-\sectionhead{02}{Selected research agenda}
-\agenda{01}{AudioCALM}{2026}{Continuous autoregressive modeling without discrete-token bottlenecks.}{Extends next-token prediction to continuous audio latents with a flow-matching head, block-causal AR-Flow, and asymmetric modality experts.}{One jointly trained model matches modality-specific state of the art across speech, sound, and music.}
+%---------- EDUCATION ----------
+\section*{Education}
 
-\agenda{02}{STAR-VAE}{ICML · 2026}{Representation learning for continuous audio generation.}{Formalizes the Rate--Distortion--Regularity Trilemma and introduces channel-indexed topology-aware regularization with a CNN--Mamba backbone.}{State-of-the-art reconstruction and generation with stronger semantic preservation.}
+\noindent\textbf{Zhejiang University} \hfill \textit{Sep 2021 -- Mar 2024} \\
+M.S.\ in Artificial Intelligence \hfill \textit{Ranked Top 0.1\% of program}
 
-\agenda{03}{PrismAudio}{ICLR · 2026}{Reasoning and reinforcement learning for video-to-audio.}{Decomposes semantic, temporal, aesthetic, and spatial reasoning into specialized chains of thought and rewards; Fast-GRPO makes multi-objective post-training practical.}{State of the art across all four dimensions and strong out-of-domain generalization.}
+\vspace{0.4ex}
+\noindent\textbf{Shandong University} \hfill \textit{Sep 2016 -- Jun 2020} \\
+B.S.\ in Electronic Information
 
-\agenda{04}{ThinkSound}{NeurIPS · 2025}{Reasoning before synthesis for interactive audio generation.}{A multimodal LLM produces AudioCoT plans for generation, object-centric refinement, and language-guided editing; a unified audio foundation model executes each stage.}{Open-source project lead; 1.4K+ GitHub stars and a complete training and inference release.}
+%---------- SYSTEMS CONTRIBUTIONS ----------
+\section*{Selected Systems Contributions}
 
-\agenda{05}{FlashAudio \& AudioLCM}{ACL · 2024--25}{Moving audio generation from hundreds of steps to one.}{Rectified Flow and latent consistency objectives reshape generative trajectories for stable, high-fidelity few-step synthesis.}{400\texttimes{} and 333\texttimes{} real-time generation; FlashAudio received ACL Oral and SAC Highlight.}
+\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
+    \item \textbf{Low-latency speech synthesis.} Core contributor to CosyVoice 2, a multilingual streaming TTS system with 14,500+ GitHub stars; designed a Rectified Flow integration yielding a \textbf{5--10$\times$ inference speedup} in production.
+    \item \textbf{Large-scale audio learning.} Architected a distributed training framework supporting \textbf{100K+ hours} of multi-domain speech data, spanning data pipelines, large-scale training, evaluation, and streaming inference.
+    \item \textbf{Multimodal audio generation.} Led ThinkSound, a video-to-audio system with 1,400+ GitHub stars; introduced multimodal-LLM chain-of-thought planning and the AudioCoT dataset.
+\end{itemize}
 
+%---------- SELECTED RESEARCH ----------
+\section*{Selected Research}
+
+\noindent\textbf{AudioCALM: Continuous Autoregressive LM for Audio Generation} \hfill \textit{NeurIPS 2026 (under review)}
+\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
+    \item Proposed Continuous Autoregressive Language Modeling (CALM): a flow-matching head replaces the LM softmax to predict rectified-flow velocities over continuous audio latents, with block-causal AR-Flow attention enabling streaming, arbitrary-length speech, sound, and music generation in one LLM backbone.
+    \item Introduced A-MoME (Asymmetric Mixture-of-Modality-Experts) to address asymmetric local--global text--audio mismatch in joint training, matching modality-specific SOTA while surpassing prior unified baselines across all three domains.
+\end{itemize}
+
+\vspace{0.4ex}
+\noindent\textbf{STAR-VAE: Structured Topology-Aware Regularization for Audio} \hfill \textit{ICML 2026}
+\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
+    \item Formalized the Rate--Distortion--Regularity Trilemma in audio VAEs; proposed channel-indexed KL regularization aligning latent capacity with audio's spectral hierarchy.
+    \item Combined STAR with a hybrid CNN--Mamba architecture and LLM-based Flow Matching, achieving SOTA reconstruction and generation on AudioCaps and Song-Describer.
+\end{itemize}
+
+\vspace{0.4ex}
+\noindent\textbf{PrismAudio: Decomposed CoT and Multi-dimensional Rewards for V2A} \hfill \textit{ICLR 2026}
+\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
+    \item First V2A framework integrating reinforcement learning with decomposed CoT planning across semantic, temporal, aesthetic, and spatial dimensions; proposed Fast-GRPO with hybrid ODE--SDE sampling to reduce training overhead.
+    \item Released the AudioCanvas benchmark and achieved SOTA across all four perceptual dimensions on VGGSound and AudioCanvas.
+\end{itemize}
+
+\vspace{0.4ex}
+\noindent\textbf{ThinkSound: Chain-of-Thought Reasoning for Audio Generation} \hfill \textit{NeurIPS 2025}
+\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
+    \item First framework to integrate chain-of-thought reasoning from multimodal LLMs into video-to-audio generation; built the large-scale AudioCoT dataset bridging visual, textual, and acoustic reasoning.
+\end{itemize}
+
+\vspace{0.4ex}
+\noindent\textbf{FlashAudio: Rectified Flows for Ultra-Fast Text-to-Audio Generation} \hfill \textit{ACL 2025 Oral (SAC Highlight)}
+\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
+    \item First work to apply Rectified Flows to TTA, enabling single-step inference at \textbf{400$\times$ real time} on one RTX 4090 while surpassing strong diffusion baselines requiring hundreds of steps.
+\end{itemize}
+
+%---------- PUBLICATIONS ----------
 \newpage
+\section*{Publications}
 
-% Page two uses an asymmetric editorial grid.
-\begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{54mm}@{}}
-  {\displayfont\fontsize{18}{20}\selectfont\bfseries Huadai Liu} & \eyebrow{Research record}\\[-0.2ex]
-  {\fontsize{7.4}{9}\selectfont\color{muted}Selected publications, research leadership, and academic service} &
-  {\fontsize{7.2}{8.5}\selectfont\color{muted}\href{https://liuhuadai.github.io}{liuhuadai.github.io}}\\
-\end{tabularx}
-\vspace{0.6ex}{\color{accent}\hrule height 0.75pt}\vspace{0.2ex}
+\textit{Selected first or co-first-author publications. Full list on Google Scholar.}
 
-\begin{minipage}[t]{0.63\textwidth}
-\vspace{0pt}
-\sectionhead{04}{Selected first- and co-first-author work}
-\publication{2026}{AudioCALM: Continuous Autoregressive Language Modeling for Universal Audio Generation}{Universal Audio}{Continuous autoregressive generation}{https://arxiv.org/abs/2606.23080}
-\publication{2026}{STAR-VAE: Structured Topology-Aware Regularization for Audio Reconstruction and Generation}{ICML}{Audio representation learning}{https://arxiv.org/abs/2606.23064}
-\publication{2026}{PrismAudio: Decomposed Chain-of-Thought and Multi-dimensional Rewards for V2A Generation}{ICLR}{Multimodal reasoning and RL}{https://arxiv.org/abs/2511.18833}
-\publication{2025}{ThinkSound: Chain-of-Thought Reasoning in Multimodal LLMs for Audio Generation and Editing}{NeurIPS}{Audio reasoning and editing}{https://arxiv.org/abs/2506.21448}
-\publication{2025}{OmniAudio: Generating Spatial Audio from 360-Degree Video}{ICML}{Spatial audio generation}{https://arxiv.org/abs/2504.14906}
-\publication{2025}{FlashAudio: Rectified Flows for Fast and High-Fidelity Text-to-Audio Generation}{ACL}{Oral · SAC Highlight}{https://aclanthology.org/2025.acl-long.673/}
-\publication{2025}{MEDIC: Zero-shot Music Editing with Disentangled Inversion Control}{ACM MM}{Oral}{https://arxiv.org/abs/2407.13220}
-\publication{2024}{AudioLCM: Efficient and High-Quality Text-to-Audio Generation with Minimal Inference Steps}{ACM MM}{Efficient generation}{https://github.com/Text-to-Audio/AudioLCM}
-\publication{2024}{Wav2SQL: Direct Generalizable Speech-To-SQL Parsing}{ACL Findings}{Speech reasoning}{https://scholar.google.com/citations?user=-avcK5sAAAAJ}
-\publication{2023}{ViT-TTS: Visual Text-to-Speech with Scalable Diffusion Transformer}{EMNLP}{Multimodal TTS}{https://scholar.google.com/citations?user=-avcK5sAAAAJ}
+\begin{enumerate}[itemsep=0.05ex, topsep=0.3ex, leftmargin=1.5em, label=\arabic*.]
+    \item \textbf{H.\ Liu}, K.\ Luo, W.\ Xue, et al. ``AudioCALM: Continuous Autoregressive Language Modeling for Universal Audio Generation.'' \textbf{NeurIPS 2026} (under review).
+    \item \textbf{H.\ Liu}, K.\ Luo, W.\ Xue, et al. ``STAR-VAE: Structured Topology-Aware Regularization for Audio Reconstruction and Generation.'' \textbf{ICML 2026}.
+    \item \textbf{H.\ Liu}, K.\ Luo, W.\ Xue, et al. ``PrismAudio: Decomposed Chain-of-Thought and Multi-dimensional Rewards for V2A Generation.'' \textbf{ICLR 2026}.
+    \item \textbf{H.\ Liu}, K.\ Luo, J.\ Wang, et al. ``ThinkSound: Chain-of-Thought Reasoning in Multimodal LLMs for Audio Generation and Editing.'' \textbf{NeurIPS 2025}.
+    \item \textbf{H.\ Liu}, T.\ Luo, K.\ Luo, et al. ``OmniAudio: Generating Spatial Audio from 360-Degree Video.'' \textbf{ICML 2025}.
+    \item \textbf{H.\ Liu}, J.\ Wang, R.\ Huang, et al. ``FlashAudio: Rectified Flows for Fast and High-Fidelity Text-to-Audio Generation.'' \textbf{ACL 2025} (Oral, SAC Highlight).
+    \item \textbf{H.\ Liu}, J.\ Wang, X.\ Li, et al. ``MEDIC: Zero-shot Music Editing with Disentangled Inversion Control.'' \textbf{ACM MM 2025} (Oral).
+    \item \textbf{H.\ Liu}, R.\ Huang, Y.\ Liu, et al. ``AudioLCM: Efficient and High-Quality Text-to-Audio Generation with Minimal Inference Steps.'' \textbf{ACM MM 2024}.
+    \item \textbf{H.\ Liu}, R.\ Huang, J.\ He, et al. ``Wav2SQL: Direct Generalizable Speech-To-SQL Parsing.'' \textbf{ACL 2024}.
+    \item \textbf{H.\ Liu}, R.\ Huang, X.\ Lin, et al. ``TranSpeech: Speech-to-Speech Translation With Bilateral Perturbation.'' \textbf{ICLR 2023}.
+    \item \textbf{H.\ Liu}, R.\ Huang, X.\ Lin, et al. ``ViT-TTS: Visual Text-to-Speech with Scalable Diffusion Transformer.'' \textbf{EMNLP 2023}.
+    \item \textbf{H.\ Liu}, R.\ Huang, X.\ Lin, et al. ``AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation.'' \textbf{ACL 2023}.
+    \item \textbf{H.\ Liu}, Y.\ Ren, R.\ Huang, et al. ``ProDiff: Progressive Fast Diffusion Model for High-Quality Text-to-Speech.'' \textbf{ACM MM 2022}.
+    \item \textbf{H.\ Liu}, et al. ``AntCritic: Argument Mining for Free-Form and Visually-Rich Financial Comments.'' \textbf{LREC-COLING 2024}.
+\end{enumerate}
 
-\vspace{0.1ex}{\color{hairline}\hrule height 0.45pt}\vspace{0.65ex}
-{\fontsize{7.25}{9.2}\selectfont\color{muted}\textbf{Selected collaborative work}\enspace SpaceVista (ICML 2026), MME-Emotion (ICLR 2026), MaskAudioFlow (Findings of ACL 2026), and one co-authored paper at ECCV 2026. Full record: \href{https://scholar.google.com/citations?user=-avcK5sAAAAJ}{Google Scholar}.}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.32\textwidth}
-\vspace{0pt}
-\sidehead{Research \& systems impact}
-\metric{5--10\texttimes{}}{CosyVoice 2 inference}{Designed and deployed a Rectified Flow path for substantially faster production inference.}
-\metric{100K+}{Training hours}{Architected distributed training and multi-domain speech data systems for foundation-model workloads.}
-\metric{22.5K+}{CosyVoice}{Core contributor to the official open-source ecosystem.}
-\metric{1.4K+}{ThinkSound}{Project lead; released AudioCoT data, model weights, training and inference code, and demos.}
-\metric{1.2K+}{AudioLCM}{Project lead; released a widely used baseline for efficient audio generation.}
-{\fontsize{6.3}{7.6}\selectfont\color{quiet}Rounded public repository snapshots, August 2026.}
+%---------- OPEN SOURCE ----------
+\section*{Open Source}
 
-\sidehead{Academic service}
-\sideitem{ACL Rolling Review}{Area Chair · 2026}
-\sideitem{ECCV}{Outstanding Reviewer · 2026}
-\sideitem{Conference reviewer}{ICML · NeurIPS · ICLR · AAAI · ACL · EMNLP · ECCV · ACM Multimedia}
-\sideitem{Journal reviewer}{IEEE/ACM TASLP}
+\begin{itemize}[leftmargin=1.3em, itemsep=0.2ex, topsep=0.3ex]
+    \item \textbf{CosyVoice} (core contributor, 14,500+ stars) --- multilingual streaming TTS. \\
+    \href{https://github.com/FunAudioLLM/CosyVoice}{github.com/FunAudioLLM/CosyVoice}
+    \item \textbf{ThinkSound \& PrismAudio} (project lead, 1,400+ stars) --- video-to-audio generation and reasoning. \\
+    \href{https://github.com/FunAudioLLM/ThinkSound}{github.com/FunAudioLLM/ThinkSound}
+    \item \textbf{AudioLCM} (project lead, 1,100+ stars) --- efficient text-to-audio generation. \\
+    \href{https://github.com/Text-to-Audio/AudioLCM}{github.com/Text-to-Audio/AudioLCM}
+\end{itemize}
 
-\sidehead{Education}
-\sideitem{Zhejiang University}{M.S. Artificial Intelligence · 2021--2024\\Top 0.1\% of program}
-\sideitem{Shandong University}{B.S. Electronic Information · 2016--2020}
+%---------- HONORS ----------
+\section*{Honors \& Awards}
 
-\sidehead{Selected honors}
-{\fontsize{7.35}{9.3}\selectfont\color{muted}
-ECCV Outstanding Reviewer (2026)\par\vspace{0.45ex}
-ACL SAC Highlight Award (2025)\par\vspace{0.45ex}
-National Scholarship, top 1\% (2023)\par\vspace{0.45ex}
-Outstanding Graduate of Zhejiang Province and Zhejiang University (2024)}
+\begin{itemize}[itemsep=0.05ex, topsep=0.3ex, leftmargin=1.3em]
+    \item \textbf{ACL 2025 SAC Highlight Award} --- Senior Area Chair top recommendation
+    \item \textbf{National Scholarship} (top 1\% nationally) \hfill 2023
+    \item \textbf{Outstanding Graduate of Zhejiang Province} \hfill 2024
+    \item \textbf{Outstanding Graduate of Zhejiang University} \hfill 2024
+\end{itemize}
 
-\sidehead{Technical expertise}
-\tinylabel{Research}\par
-{\fontsize{7.2}{9.2}\selectfont\color{muted}Generative modeling, multimodal LLMs, autoregressive models, flow matching, Rectified Flow, reinforcement learning, and cross-modal reasoning.}\par\vspace{0.65ex}
-\tinylabel{Engineering}\par
-{\fontsize{7.2}{9.2}\selectfont\color{muted}PyTorch, distributed training, FSDP, DeepSpeed, large-scale data pipelines, streaming inference, and production optimization.}
-\end{minipage}
+%---------- SERVICE ----------
+\section*{Academic Service}
+
+\begin{itemize}[itemsep=0.05ex, topsep=0.3ex, leftmargin=1.3em]
+    \item \textbf{Area Chair}, ACL Rolling Review \hfill 2026
+    \item \textbf{Outstanding Reviewer Award}, ECCV \hfill 2026
+    \item \textbf{Conference Reviewer:} NeurIPS, ICML, ICLR, ACL, EMNLP, CVPR, ECCV, AAAI, ACM Multimedia
+    \item \textbf{Journal Reviewer:} IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP)
+\end{itemize}
+
+%---------- SKILLS ----------
+\section*{Technical Skills}
+
+\begin{itemize}[itemsep=0.05ex, topsep=0.3ex, leftmargin=0em, label={}]
+    \item \textbf{Research Areas:} Audio and speech generation, multimodal learning and reasoning, diffusion and flow matching, reinforcement learning for generative models
+    \item \textbf{Engineering:} Large-scale distributed training (FSDP, DeepSpeed), PyTorch, scalable inference systems, production deployment
+\end{itemize}
 
 \end{document}
