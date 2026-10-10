@@ -53,6 +53,8 @@
     {\LARGE\scshape\bfseries Huadai Liu}
     \\[1ex]
     \small
+    \faEnvelope\ \href{mailto:dylanliu1009@gmail.com}{dylanliu1009@gmail.com}
+    \quad\textbar\quad
     \faGlobe\ \href{https://liuhuadai.github.io}{liuhuadai.github.io}
     \quad\textbar\quad
     \faGithub\ \href{https://github.com/liuhuadai}{github.com/liuhuadai}
@@ -76,15 +78,14 @@ B.S.\ in Electronic Information
 \section*{Selected Systems Contributions}
 
 \begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
-    \item \textbf{Low-latency speech synthesis.} Core contributor to CosyVoice 2, a multilingual streaming TTS system with 14,500+ GitHub stars; designed a Rectified Flow integration yielding a \textbf{5--10$\times$ inference speedup} in production.
-    \item \textbf{Large-scale audio learning.} Architected a distributed training framework supporting \textbf{100K+ hours} of multi-domain speech data, spanning data pipelines, large-scale training, evaluation, and streaming inference.
-    \item \textbf{Multimodal audio generation.} Led ThinkSound, a video-to-audio system with 1,400+ GitHub stars; introduced multimodal-LLM chain-of-thought planning and the AudioCoT dataset.
+    \item \textbf{Low-latency speech synthesis.} Core contributor to CosyVoice 2, a multilingual streaming TTS system with 23.9K GitHub stars; designed a Rectified Flow integration yielding a \textbf{5--10$\times$ inference speedup} in production.
+    \item \textbf{Multimodal audio generation.} Led ThinkSound, a video-to-audio system with 1,300+ GitHub stars; introduced multimodal-LLM chain-of-thought planning and the AudioCoT dataset.
 \end{itemize}
 
 %---------- SELECTED RESEARCH ----------
 \section*{Selected Research}
 
-\noindent\textbf{AudioCALM: Continuous Autoregressive LM for Audio Generation} \hfill \textit{NeurIPS 2026 (under review)}
+\noindent\textbf{AudioCALM: Continuous Autoregressive LM for Audio Generation} \hfill \textit{NeurIPS 2026}
 \begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
     \item Proposed Continuous Autoregressive Language Modeling (CALM): a flow-matching head replaces the LM softmax to predict rectified-flow velocities over continuous audio latents, with block-causal AR-Flow attention enabling streaming, arbitrary-length speech, sound, and music generation in one LLM backbone.
     \item Introduced A-MoME (Asymmetric Mixture-of-Modality-Experts) to address asymmetric local--global text--audio mismatch in joint training, matching modality-specific SOTA while surpassing prior unified baselines across all three domains.
@@ -111,42 +112,44 @@ B.S.\ in Electronic Information
 \end{itemize}
 
 \vspace{0.4ex}
-\noindent\textbf{FlashAudio: Rectified Flows for Ultra-Fast Text-to-Audio Generation} \hfill \textit{ACL 2025 Oral (SAC Highlight)}
+\noindent\textbf{FlashAudio: Rectified Flow for Fast and High-Fidelity Text-to-Audio Generation} \hfill \textit{ACL 2025 Oral (SAC Highlight)}
 \begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
     \item First work to apply Rectified Flows to TTA, enabling single-step inference at \textbf{400$\times$ real time} on one RTX 4090 while surpassing strong diffusion baselines requiring hundreds of steps.
 \end{itemize}
 
 %---------- PUBLICATIONS ----------
-\newpage
+
 \section*{Publications}
 
-\textit{Selected first or co-first-author publications. Full list on Google Scholar.}
+\textit{First and co-first author publications ($^*$ equal contribution). Full list on Google Scholar.}
 
 \begin{enumerate}[itemsep=0.05ex, topsep=0.3ex, leftmargin=1.5em, label=\arabic*.]
-    \item \textbf{H.\ Liu}, K.\ Luo, W.\ Xue, et al. ``AudioCALM: Continuous Autoregressive Language Modeling for Universal Audio Generation.'' \textbf{NeurIPS 2026} (under review).
-    \item \textbf{H.\ Liu}, K.\ Luo, W.\ Xue, et al. ``STAR-VAE: Structured Topology-Aware Regularization for Audio Reconstruction and Generation.'' \textbf{ICML 2026}.
-    \item \textbf{H.\ Liu}, K.\ Luo, W.\ Xue, et al. ``PrismAudio: Decomposed Chain-of-Thought and Multi-dimensional Rewards for V2A Generation.'' \textbf{ICLR 2026}.
-    \item \textbf{H.\ Liu}, K.\ Luo, J.\ Wang, et al. ``ThinkSound: Chain-of-Thought Reasoning in Multimodal LLMs for Audio Generation and Editing.'' \textbf{NeurIPS 2025}.
+    \item \textbf{H.\ Liu}, K.\ Luo, W.\ Wang, et al. ``AudioCALM: Continuous Autoregressive Language Modeling for Universal Audio Generation.'' \textbf{NeurIPS 2026}.
+    \item \textbf{H.\ Liu}, W.\ Wang, K.\ Luo, et al. ``STAR-VAE: Structured Topology-Aware Regularization for Audio Reconstruction and Generation.'' \textbf{ICML 2026}.
+    \item \textbf{H.\ Liu}, K.\ Luo, W.\ Wang, et al. ``PrismAudio: Decomposed Chain-of-Thoughts and Multi-dimensional Rewards for Video-to-Audio Generation.'' \textbf{ICLR 2026}.
+    \item \textbf{H.\ Liu}, P.\ Sun, Q.\ Chen, et al. ``MosaicAudio: Multi-Teacher On-Policy Distillation for Controllable Video-to-Audio Generation.'' \textbf{EMNLP 2026}.
+    \item P.\ Sun$^*$, X.\ Lu$^*$, \textbf{H.\ Liu$^*$}, et al. ``X-Stream: Exploring MLLMs as Multiplexers for Multi-Stream Understanding.'' \textbf{ECCV 2026}.
+    \item \textbf{H.\ Liu}, K.\ Luo, J.\ Wang, et al. ``ThinkSound: Chain-of-Thought Reasoning in Multimodal Large Language Models for Audio Generation and Editing.'' \textbf{NeurIPS 2025}.
     \item \textbf{H.\ Liu}, T.\ Luo, K.\ Luo, et al. ``OmniAudio: Generating Spatial Audio from 360-Degree Video.'' \textbf{ICML 2025}.
-    \item \textbf{H.\ Liu}, J.\ Wang, R.\ Huang, et al. ``FlashAudio: Rectified Flows for Fast and High-Fidelity Text-to-Audio Generation.'' \textbf{ACL 2025} (Oral, SAC Highlight).
+    \item \textbf{H.\ Liu}, J.\ Wang, R.\ Huang, et al. ``FlashAudio: Rectified Flow for Fast and High-Fidelity Text-to-Audio Generation.'' \textbf{ACL 2025} (Oral, SAC Highlight).
     \item \textbf{H.\ Liu}, J.\ Wang, X.\ Li, et al. ``MEDIC: Zero-shot Music Editing with Disentangled Inversion Control.'' \textbf{ACM MM 2025} (Oral).
     \item \textbf{H.\ Liu}, R.\ Huang, Y.\ Liu, et al. ``AudioLCM: Efficient and High-Quality Text-to-Audio Generation with Minimal Inference Steps.'' \textbf{ACM MM 2024}.
-    \item \textbf{H.\ Liu}, R.\ Huang, J.\ He, et al. ``Wav2SQL: Direct Generalizable Speech-To-SQL Parsing.'' \textbf{ACL 2024}.
-    \item \textbf{H.\ Liu}, R.\ Huang, X.\ Lin, et al. ``TranSpeech: Speech-to-Speech Translation With Bilateral Perturbation.'' \textbf{ICLR 2023}.
-    \item \textbf{H.\ Liu}, R.\ Huang, X.\ Lin, et al. ``ViT-TTS: Visual Text-to-Speech with Scalable Diffusion Transformer.'' \textbf{EMNLP 2023}.
-    \item \textbf{H.\ Liu}, R.\ Huang, X.\ Lin, et al. ``AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation.'' \textbf{ACL 2023}.
-    \item \textbf{H.\ Liu}, Y.\ Ren, R.\ Huang, et al. ``ProDiff: Progressive Fast Diffusion Model for High-Quality Text-to-Speech.'' \textbf{ACM MM 2022}.
+    \item \textbf{H.\ Liu}, R.\ Huang, J.\ He, et al. ``Wav2SQL: Direct Generalizable Speech-To-SQL Parsing.'' \textbf{Findings of ACL 2024}.
     \item \textbf{H.\ Liu}, et al. ``AntCritic: Argument Mining for Free-Form and Visually-Rich Financial Comments.'' \textbf{LREC-COLING 2024}.
+    \item R.\ Huang$^*$, J.\ Liu$^*$, \textbf{H.\ Liu$^*$}, et al. ``TranSpeech: Speech-to-Speech Translation With Bilateral Perturbation.'' \textbf{ICLR 2023}.
+    \item \textbf{H.\ Liu}, R.\ Huang, X.\ Lin, et al. ``ViT-TTS: Visual Text-to-Speech with Scalable Diffusion Transformer.'' \textbf{EMNLP 2023}.
+    \item R.\ Huang$^*$, \textbf{H.\ Liu$^*$}, X.\ Cheng, et al. ``AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation.'' \textbf{ACL 2023}.
+    \item R.\ Huang$^*$, Z.\ Zhao, \textbf{H.\ Liu$^*$}, et al. ``ProDiff: Progressive Fast Diffusion Model for High-Quality Text-to-Speech.'' \textbf{ACM MM 2022}.
 \end{enumerate}
 
 %---------- OPEN SOURCE ----------
 \section*{Open Source}
 
 \begin{itemize}[leftmargin=1.3em, itemsep=0.2ex, topsep=0.3ex]
-    \item \textbf{CosyVoice} (core contributor, 14,500+ stars) --- multilingual streaming TTS. \\
-    \href{https://github.com/FunAudioLLM/CosyVoice}{github.com/FunAudioLLM/CosyVoice}
-    \item \textbf{ThinkSound \& PrismAudio} (project lead, 1,400+ stars) --- video-to-audio generation and reasoning. \\
-    \href{https://github.com/FunAudioLLM/ThinkSound}{github.com/FunAudioLLM/ThinkSound}
+    \item \textbf{CosyVoice 2} (core contributor, 23.9K stars) --- multilingual streaming TTS. \\
+    \href{https://github.com/QwenAudio/CosyVoice}{github.com/QwenAudio/CosyVoice}
+    \item \textbf{ThinkSound \& PrismAudio} (project lead, 1,300+ stars) --- video-to-audio generation and reasoning. \\
+    \href{https://github.com/QwenAudio/ThinkSound}{github.com/QwenAudio/ThinkSound}
     \item \textbf{AudioLCM} (project lead, 1,100+ stars) --- efficient text-to-audio generation. \\
     \href{https://github.com/Text-to-Audio/AudioLCM}{github.com/Text-to-Audio/AudioLCM}
 \end{itemize}
