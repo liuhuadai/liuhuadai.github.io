@@ -191,7 +191,7 @@ window.SITE = {
 
   service: [
     { role: "Area Chair", where: "ACL Rolling Review (2026)" },
-    { role: "Conference reviewer", where: "NeurIPS, ICML, ICLR, ACL, EMNLP, CVPR, ECCV, AAAI, ACM Multimedia" },
+    { role: "Conference reviewer", where: "NeurIPS, ICML, ICLR, ACL, EMNLP, ECCV, AAAI, ACM Multimedia" },
     { role: "Journal reviewer", where: "IEEE/ACM Transactions on Audio, Speech, and Language Processing" },
   ],
 
