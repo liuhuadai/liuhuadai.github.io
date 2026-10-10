@@ -1,185 +1,164 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Public Academic CV - Huadai Liu
-% Based directly on the classic Overleaf CV_full_form.tex template.
-% Public version: private contact details and identifiable employment
-% dates/title/location are intentionally omitted.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Huadai Liu -- public academic CV for liuhuadai.github.io.
+% Public version: lists research, publications, open source and service only.
+% Build: pdflatex CV_public.tex (twice, for the page count in the footer).
+% Fonts: pdflatex uses Bitstream Charter + TeX Gyre Heros; lualatex/xelatex use
+% Libertinus Serif + Source Sans Pro when the .otf files sit next to this file.
+\documentclass[10pt,letterpaper]{article}
 
-\documentclass[10pt, a4paper]{article}
-
-\usepackage[a4paper, margin=0.7in]{geometry}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{fontawesome5}
-\usepackage{microtype}
-\usepackage{hyperref}
-
-\definecolor{textcolor}{HTML}{000000}
-\definecolor{linkcolor}{HTML}{003366}
-
-\hypersetup{
-    colorlinks=true,
-    urlcolor=linkcolor,
-    linkcolor=linkcolor,
-    citecolor=linkcolor,
-    pdfborder={0 0 0},
-    pdftitle={Huadai Liu - Academic CV},
-    pdfauthor={Huadai Liu}
-}
-
-\pagestyle{empty}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage{charter}
+  \usepackage[scale=0.88]{tgheros}
+  \newcommand{\headingspacing}{\lsstyle}
+\else
+  \usepackage{fontspec}
+  \setmainfont{LibertinusSerif}[
+    Extension=.otf,UprightFont=*-Regular,BoldFont=*-Semibold,
+    ItalicFont=*-Italic,BoldItalicFont=*-SemiboldItalic,Ligatures=TeX]
+  \setsansfont{SourceSansPro}[
+    Extension=.otf,UprightFont=*-Regular,BoldFont=*-Semibold,
+    ItalicFont=*-RegularIt,BoldItalicFont=*-SemiboldIt,Ligatures=TeX]
+  \newcommand{\headingspacing}{\addfontfeatures{LetterSpace=5}}
+\fi
+\usepackage[left=0.68in,right=0.68in,top=0.55in,bottom=0.6in]{geometry}
+\usepackage{microtype,xcolor,enumitem,titlesec,hyperref,tabularx,fancyhdr,ragged2e,lastpage}
+\ifPDFTeX\microtypesetup{letterspace=50}\fi
+\definecolor{navy}{HTML}{24475D}
+\definecolor{ink}{HTML}{252C32}
+\definecolor{muted}{HTML}{5E6A74}
+\definecolor{rulecolor}{HTML}{BDCAD2}
+\hypersetup{colorlinks=true,urlcolor=navy,linkcolor=navy,
+  pdftitle={Huadai Liu - Academic CV},pdfauthor={Huadai Liu}}
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\RaggedRightParindent}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\hyphenpenalty=6000
+\exhyphenpenalty=1000
+\flushbottom
 
-\titleformat{\section}
-  {\large\scshape\bfseries\color{textcolor}}
-  {}{0em}{}
-  [\vspace{-0.3ex}\titlerule\vspace{0.3ex}]
-\titlespacing{\section}{0pt}{1.8ex}{0.8ex}
+% ---------------------------------------------------------------- styles
+\titleformat{\section}{\color{navy}\sffamily\bfseries\fontsize{10.5}{13}\selectfont\headingspacing}{}{0pt}{}
+  [\vspace{2pt}{\color{rulecolor}\titlerule[0.45pt]}]
+\titlespacing*{\section}{0pt}{10pt plus 5pt minus 2pt}{5pt plus 2pt}
+\setlist[itemize]{leftmargin=1.15em,label=\textbullet,
+  itemsep=3pt plus 2pt,topsep=2pt plus 1pt,parsep=0pt,partopsep=0pt}
+\setlist[enumerate]{leftmargin=1.5em,label=\arabic*.,
+  itemsep=2.5pt plus 1pt,topsep=3pt,parsep=0pt,partopsep=0pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[L]{\color{muted}\sffamily\fontsize{8.3}{10}\selectfont Huadai Liu \enspace\textbar\enspace liuhuadai.github.io}
+\fancyfoot[R]{\color{muted}\sffamily\fontsize{8.3}{10}\selectfont \thepage\,/\,\pageref*{LastPage}}
+\setlength{\footskip}{17pt}
 
-\titleformat{\subsection}
-  {\normalsize\scshape\itshape}
-  {}{0em}{}
-\titlespacing{\subsection}{0pt}{1ex}{0.3ex}
+\newcommand{\entry}[3]{\par\noindent\begin{tabularx}{\textwidth}{@{}Xr@{}}
+  {\bfseries #1}\quad{\color{muted}#2} & {\color{muted}\sffamily\fontsize{9.5}{12}\selectfont #3}\\
+  \end{tabularx}\par\nobreak\vspace{-2pt}}
+\newcommand{\researchgroup}[1]{\par\vspace{4pt plus 2pt}
+  {\color{navy}\sffamily\bfseries\fontsize{10.2}{12.6}\selectfont #1}\par\nobreak}
+\newcommand{\me}{\textbf{H.\ Liu}}
+\newcommand{\eq}{\textsuperscript{*}}
+\newcommand{\pub}[4]{\item #1. \href{#4}{\textcolor{ink}{#2}}. {\color{navy}\textbf{#3}}.}
 
+% ---------------------------------------------------------------- document
 \begin{document}
-\color{textcolor}
+\color{ink}\RaggedRight\fontsize{10.4}{13}\selectfont
 
-%---------- HEADER ----------
 \begin{center}
-    {\LARGE\scshape\bfseries Huadai Liu}
-    \\[1ex]
-    \small
-    \faEnvelope\ \href{mailto:dylanliu1009@gmail.com}{dylanliu1009@gmail.com}
-    \quad\textbar\quad
-    \faGlobe\ \href{https://liuhuadai.github.io}{liuhuadai.github.io}
-    \quad\textbar\quad
-    \faGithub\ \href{https://github.com/liuhuadai}{github.com/liuhuadai}
-    \quad\textbar\quad
-    \faGoogle\ \href{https://scholar.google.com/citations?user=-avcK5sAAAAJ}{Google Scholar}
+  {\color{navy}\fontsize{28}{31}\selectfont\textbf{Huadai Liu}}\\[3pt]
+  {\color{muted}\sffamily\fontsize{10.6}{13.5}\selectfont
+    Multimodal Foundation Models \enspace\textbullet\enspace Audio Language Models \enspace\textbullet\enspace Post-training}\\[5pt]
+  {\sffamily\fontsize{9.4}{12}\selectfont
+    \href{mailto:dylanliu1009@gmail.com}{dylanliu1009@gmail.com}
+    \enspace\textbar\enspace \href{https://liuhuadai.github.io/}{liuhuadai.github.io}
+    \enspace\textbar\enspace \href{https://scholar.google.com/citations?user=-avcK5sAAAAJ}{Google Scholar}
+    \enspace\textbar\enspace \href{https://github.com/liuhuadai}{GitHub}}
 \end{center}
+\vspace{-4pt}
 
-\vspace{0.5ex}
+\section{SUMMARY}
+Researcher working on multimodal foundation models that perceive, reason, and generate: audio language models for speech, sound, and music; multimodal LLM reasoning; post-training with reinforcement learning, on-policy distillation, and chain-of-thought; and the latent representations and few-step samplers beneath diffusion and flow-based generation. 16 first-author papers at NeurIPS, ICML, ICLR, ACL, EMNLP, and ACM MM.
 
-%---------- EDUCATION ----------
-\section*{Education}
-
-\noindent\textbf{Zhejiang University} \hfill \textit{Sep 2021 -- Mar 2024} \\
-M.S.\ in Artificial Intelligence \hfill \textit{Ranked Top 0.1\% of program}
-
-\vspace{0.4ex}
-\noindent\textbf{Shandong University} \hfill \textit{Sep 2016 -- Jun 2020} \\
-B.S.\ in Electronic Information
-
-%---------- SYSTEMS CONTRIBUTIONS ----------
-\section*{Selected Systems Contributions}
-
-\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
-    \item \textbf{Low-latency speech synthesis.} Core contributor to CosyVoice 2, a multilingual streaming TTS system with 23.9K GitHub stars; designed a Rectified Flow integration yielding a \textbf{5--10$\times$ inference speedup} in production.
-    \item \textbf{Multimodal audio generation.} Led ThinkSound, a video-to-audio system with 1,300+ GitHub stars; introduced multimodal-LLM chain-of-thought planning and the AudioCoT dataset.
+\section{RESEARCH HIGHLIGHTS}
+\researchgroup{Audio Language Models}
+\begin{itemize}
+  \item \textbf{AudioCALM} (NeurIPS 2026). One continuous autoregressive model for speech, sound, and music: a flow-matching head replaces the softmax and block-causal attention supports streaming; beats CosyVoice 3.0 on WER (2.0\% vs.\ 2.2\%) and TangoFlux on FAD (1.95 vs.\ 2.70).
+\end{itemize}
+\researchgroup{Multimodal LLMs: Reasoning \& Evaluation}
+\begin{itemize}
+  \item \textbf{ThinkSound} (NeurIPS 2025). Multimodal-LLM chain-of-thought binds visual events to acoustic conditions before flow-matching synthesis, and drives object-level refinement and instruction-based editing; FD 34.6 vs.\ 43.3 for MMAudio on VGGSound, with 2.8\texttimes\ faster inference.
+  \item \textbf{X-Stream} (ECCV 2026, co-first author). First benchmark for multi-stream streaming understanding (4,220 QA pairs over 932 videos, 11 subtasks), analysing MLLMs as signal multiplexers; state-of-the-art MLLMs score about 50\%.
+\end{itemize}
+\researchgroup{Post-training \& Alignment}
+\begin{itemize}
+  \item \textbf{PrismAudio} (ICLR 2026). Four reasoning modules with matching rewards; Fast-GRPO's hybrid ODE--SDE sampling exceeds Flow-GRPO's final reward in 200 steps (vs.\ 600+); best on all four perceptual dimensions.
+  \item \textbf{MosaicAudio} (EMNLP 2026). Distills four flow-matching teachers into one controllable student with per-axis on-policy supervision and a perceptual manifold anchor.
+\end{itemize}
+\researchgroup{Latent Representations \& Fast Sampling}
+\begin{itemize}
+  \item \textbf{STAR-VAE} (ICML 2026). Structure--texture-aligned latent channels with a CNN--Mamba backbone beat the Stable Audio Open VAE on all reconstruction metrics at equal latent rate; text-to-audio FD 89.2\,$\to$\,72.5.
+  \item \textbf{FlashAudio / AudioLCM} (ACL 2025 Oral / ACM MM 2024). \textbf{Single-step generation at 400\texttimes\ real time}, beating diffusion baselines that use hundreds of steps; AudioLCM synthesizes in 2 steps at 333\texttimes\ real time.
 \end{itemize}
 
-%---------- SELECTED RESEARCH ----------
-\section*{Selected Research}
-
-\noindent\textbf{AudioCALM: Continuous Autoregressive LM for Audio Generation} \hfill \textit{NeurIPS 2026}
-\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
-    \item Proposed Continuous Autoregressive Language Modeling (CALM): a flow-matching head replaces the LM softmax to predict rectified-flow velocities over continuous audio latents, with block-causal AR-Flow attention enabling streaming, arbitrary-length speech, sound, and music generation in one LLM backbone.
-    \item Introduced A-MoME (Asymmetric Mixture-of-Modality-Experts) to address asymmetric local--global text--audio mismatch in joint training, matching modality-specific SOTA while surpassing prior unified baselines across all three domains.
+\section{OPEN SOURCE \& IMPACT}
+\begin{itemize}
+  \item \textbf{CosyVoice 2} (core contributor). LLM-based multilingual streaming TTS; designed the rectified-flow inference path, a 5--10\texttimes\ inference speed-up in production; \textbf{23.9K GitHub stars}, \textbf{480+ citations}.
+  \item \textbf{ThinkSound \& PrismAudio} (research and project lead). Released models, AudioCoT data, the AudioCanvas benchmark, and full training code; \textbf{1.3K+ GitHub stars}, \textbf{1M+ social-media views}, \textbf{\#3 on Papers with Code Trending}; covered by QbitAI and IT Home.
+  \item \textbf{AudioLCM} (lead). Few-step text-to-audio training and inference code; \textbf{1.1K+ GitHub stars}.
 \end{itemize}
 
-\vspace{0.4ex}
-\noindent\textbf{STAR-VAE: Structured Topology-Aware Regularization for Audio} \hfill \textit{ICML 2026}
-\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
-    \item Formalized the Rate--Distortion--Regularity Trilemma in audio VAEs; proposed channel-indexed KL regularization aligning latent capacity with audio's spectral hierarchy.
-    \item Combined STAR with a hybrid CNN--Mamba architecture and LLM-based Flow Matching, achieving SOTA reconstruction and generation on AudioCaps and Song-Describer.
-\end{itemize}
+\section{EDUCATION}
+\entry{Zhejiang University}{M.S.\ in Artificial Intelligence}{2021 -- 2024}
+{\color{muted}Advisor: Prof.\ Zhou Zhao.}\par\vspace{4pt plus 2pt}
+\entry{Shandong University}{B.S.\ in Electronic Information}{2016 -- 2020}
 
-\vspace{0.4ex}
-\noindent\textbf{PrismAudio: Decomposed CoT and Multi-dimensional Rewards for V2A} \hfill \textit{ICLR 2026}
-\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
-    \item First V2A framework integrating reinforcement learning with decomposed CoT planning across semantic, temporal, aesthetic, and spatial dimensions; proposed Fast-GRPO with hybrid ODE--SDE sampling to reduce training overhead.
-    \item Released the AudioCanvas benchmark and achieved SOTA across all four perceptual dimensions on VGGSound and AudioCanvas.
-\end{itemize}
-
-\vspace{0.4ex}
-\noindent\textbf{ThinkSound: Chain-of-Thought Reasoning for Audio Generation} \hfill \textit{NeurIPS 2025}
-\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
-    \item First framework to integrate chain-of-thought reasoning from multimodal LLMs into video-to-audio generation; built the large-scale AudioCoT dataset bridging visual, textual, and acoustic reasoning.
-\end{itemize}
-
-\vspace{0.4ex}
-\noindent\textbf{FlashAudio: Rectified Flow for Fast and High-Fidelity Text-to-Audio Generation} \hfill \textit{ACL 2025 Oral (SAC Highlight)}
-\begin{itemize}[leftmargin=1.3em, itemsep=0.1ex, topsep=0.2ex]
-    \item First work to apply Rectified Flows to TTA, enabling single-step inference at \textbf{400$\times$ real time} on one RTX 4090 while surpassing strong diffusion baselines requiring hundreds of steps.
-\end{itemize}
-
-%---------- PUBLICATIONS ----------
-
-\section*{Publications}
-
-\textit{First and co-first author publications ($^*$ equal contribution). Full list on Google Scholar.}
-
-\begin{enumerate}[itemsep=0.05ex, topsep=0.3ex, leftmargin=1.5em, label=\arabic*.]
-    \item \textbf{H.\ Liu}, K.\ Luo, W.\ Wang, et al. ``AudioCALM: Continuous Autoregressive Language Modeling for Universal Audio Generation.'' \textbf{NeurIPS 2026}.
-    \item \textbf{H.\ Liu}, W.\ Wang, K.\ Luo, et al. ``STAR-VAE: Structured Topology-Aware Regularization for Audio Reconstruction and Generation.'' \textbf{ICML 2026}.
-    \item \textbf{H.\ Liu}, K.\ Luo, W.\ Wang, et al. ``PrismAudio: Decomposed Chain-of-Thoughts and Multi-dimensional Rewards for Video-to-Audio Generation.'' \textbf{ICLR 2026}.
-    \item \textbf{H.\ Liu}, P.\ Sun, Q.\ Chen, et al. ``MosaicAudio: Multi-Teacher On-Policy Distillation for Controllable Video-to-Audio Generation.'' \textbf{EMNLP 2026}.
-    \item P.\ Sun$^*$, X.\ Lu$^*$, \textbf{H.\ Liu$^*$}, et al. ``X-Stream: Exploring MLLMs as Multiplexers for Multi-Stream Understanding.'' \textbf{ECCV 2026}.
-    \item \textbf{H.\ Liu}, K.\ Luo, J.\ Wang, et al. ``ThinkSound: Chain-of-Thought Reasoning in Multimodal Large Language Models for Audio Generation and Editing.'' \textbf{NeurIPS 2025}.
-    \item \textbf{H.\ Liu}, T.\ Luo, K.\ Luo, et al. ``OmniAudio: Generating Spatial Audio from 360-Degree Video.'' \textbf{ICML 2025}.
-    \item \textbf{H.\ Liu}, J.\ Wang, R.\ Huang, et al. ``FlashAudio: Rectified Flow for Fast and High-Fidelity Text-to-Audio Generation.'' \textbf{ACL 2025} (Oral, SAC Highlight).
-    \item \textbf{H.\ Liu}, J.\ Wang, X.\ Li, et al. ``MEDIC: Zero-shot Music Editing with Disentangled Inversion Control.'' \textbf{ACM MM 2025} (Oral).
-    \item \textbf{H.\ Liu}, R.\ Huang, Y.\ Liu, et al. ``AudioLCM: Efficient and High-Quality Text-to-Audio Generation with Minimal Inference Steps.'' \textbf{ACM MM 2024}.
-    \item \textbf{H.\ Liu}, R.\ Huang, J.\ He, et al. ``Wav2SQL: Direct Generalizable Speech-To-SQL Parsing.'' \textbf{Findings of ACL 2024}.
-    \item \textbf{H.\ Liu}, et al. ``AntCritic: Argument Mining for Free-Form and Visually-Rich Financial Comments.'' \textbf{LREC-COLING 2024}.
-    \item R.\ Huang$^*$, J.\ Liu$^*$, \textbf{H.\ Liu$^*$}, et al. ``TranSpeech: Speech-to-Speech Translation With Bilateral Perturbation.'' \textbf{ICLR 2023}.
-    \item \textbf{H.\ Liu}, R.\ Huang, X.\ Lin, et al. ``ViT-TTS: Visual Text-to-Speech with Scalable Diffusion Transformer.'' \textbf{EMNLP 2023}.
-    \item R.\ Huang$^*$, \textbf{H.\ Liu$^*$}, X.\ Cheng, et al. ``AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation.'' \textbf{ACL 2023}.
-    \item R.\ Huang$^*$, Z.\ Zhao, \textbf{H.\ Liu$^*$}, et al. ``ProDiff: Progressive Fast Diffusion Model for High-Quality Text-to-Speech.'' \textbf{ACM MM 2022}.
+\pagebreak
+\fontsize{10}{12.2}\selectfont
+\section{PUBLICATIONS}
+{\fontsize{10}{12}\selectfont
+26 published or accepted papers; 16 first-author papers, including 4 co-first-author papers.\par
+\href{https://scholar.google.com/citations?user=-avcK5sAAAAJ}{Google Scholar}: 1,446 citations; h-index 16.\par}
+\vspace{4pt}
+\textbf{First \& Co-first Author}\hfill {\color{muted}\fontsize{9}{11}\selectfont * equal contribution}\par
+\begingroup\fontsize{10}{11.8}\selectfont\hyphenpenalty=10000\exhyphenpenalty=10000
+\begin{enumerate}[itemsep=1.5pt]
+\pub{\me, K.\ Luo, W.\ Wang, et al}{AudioCALM: Continuous Autoregressive Language Modeling for Universal Audio Generation}{NeurIPS 2026}{https://arxiv.org/abs/2606.23080}
+\pub{\me, W.\ Wang, K.\ Luo, et al}{STAR-VAE: Structured Topology-Aware Regularization for Audio Reconstruction and Generation}{ICML 2026}{https://arxiv.org/abs/2606.23064}
+\pub{\me, K.\ Luo, W.\ Wang, et al}{PrismAudio: Decomposed Chain-of-Thoughts and Multi-dimensional Rewards for Video-to-Audio Generation}{ICLR 2026}{https://arxiv.org/abs/2511.18833}
+\pub{\me, P.\ Sun, Q.\ Chen, et al}{MosaicAudio: Multi-Teacher On-Policy Distillation for Controllable Video-to-Audio Generation}{EMNLP 2026}{https://openreview.net/forum?id=cEsbadnnl2}
+\pub{P.\ Sun\eq, X.\ Lu\eq, \me\eq, et al}{X-Stream: Exploring MLLMs as Multiplexers for Multi-Stream Understanding}{ECCV 2026}{https://arxiv.org/abs/2606.02482}
+\pub{\me, K.\ Luo, J.\ Wang, et al}{ThinkSound: Chain-of-Thought Reasoning in Multimodal Large Language Models for Audio Generation and Editing}{NeurIPS 2025}{https://arxiv.org/abs/2506.21448}
+\pub{\me, T.\ Luo, K.\ Luo, et al}{OmniAudio: Generating Spatial Audio from 360-Degree Video}{ICML 2025}{https://arxiv.org/abs/2504.14906}
+\pub{\me, J.\ Wang, R.\ Huang, et al}{FlashAudio: Rectified Flow for Fast and High-Fidelity Text-to-Audio Generation}{ACL 2025, Oral; SAC Highlight}{https://aclanthology.org/2025.acl-long.673/}
+\pub{\me, J.\ Wang, X.\ Li, et al}{MEDIC: Zero-shot Music Editing with Disentangled Inversion Control}{ACM MM 2025, Oral}{https://arxiv.org/abs/2407.13220}
+\pub{\me, R.\ Huang, Y.\ Liu, et al}{AudioLCM: Efficient and High-Quality Text-to-Audio Generation with Minimal Inference Steps}{ACM MM 2024}{https://arxiv.org/abs/2406.00356}
+\pub{\me, R.\ Huang, J.\ He, et al}{Wav2SQL: Direct Generalizable Speech-To-SQL Parsing}{Findings of ACL 2024}{https://aclanthology.org/2024.findings-acl.251/}
+\pub{\me, W.\ Xu, X.\ Lin, et al}{AntCritic: Argument Mining for Free-Form and Visually-Rich Financial Comments}{LREC-COLING 2024}{https://aclanthology.org/2024.lrec-main.117/}
+\pub{R.\ Huang\eq, J.\ Liu\eq, \me\eq, et al}{TranSpeech: Speech-to-Speech Translation With Bilateral Perturbation}{ICLR 2023}{https://arxiv.org/abs/2205.12523}
+\pub{\me, R.\ Huang, X.\ Lin, et al}{ViT-TTS: Visual Text-to-Speech with Scalable Diffusion Transformer}{EMNLP 2023}{https://aclanthology.org/2023.emnlp-main.990/}
+\pub{R.\ Huang\eq, \me\eq, X.\ Cheng, et al}{AV-TranSpeech: Audio-Visual Robust Speech-to-Speech Translation}{ACL 2023}{https://aclanthology.org/2023.acl-long.479/}
+\pub{R.\ Huang\eq, Z.\ Zhao, \me\eq, et al}{ProDiff: Progressive Fast Diffusion Model for High-Quality Text-to-Speech}{ACM MM 2022}{https://doi.org/10.1145/3503161.3547855}
 \end{enumerate}
+\vspace{3pt}
+{\fontsize{10.4}{12.6}\selectfont\textbf{Selected Co-authored}}\par
+\begin{enumerate}[itemsep=1.5pt,resume]
+\pub{P.\ Sun, S.\ Lang, D.\ Wu, \ldots, \me, et al}{SpaceVista: All-Scale Visual Spatial Reasoning from mm to km}{ICML 2026}{https://arxiv.org/abs/2510.09606}
+\pub{F.\ Zhang, Z.\ Cheng, C.\ Deng, \ldots, \me, et al}{MME-Emotion: A Holistic Evaluation Benchmark for Emotional Intelligence in Multimodal Large Language Models}{ICLR 2026}{https://arxiv.org/abs/2508.09210}
+\pub{P.\ Sun, S.\ Cheng, X.\ Li, Z.\ Ye, \me, et al}{Both Ears Wide Open: Towards Language-Driven Spatial Audio Generation}{ICLR 2025}{https://arxiv.org/abs/2410.10676}
+\pub{Z.\ Du, Y.\ Wang, Q.\ Chen, \ldots, \me, et al}{CosyVoice 2: Scalable Streaming Speech Synthesis with Large Language Models}{Technical report, 2024}{https://arxiv.org/abs/2412.10117}
+\end{enumerate}\endgroup
 
-%---------- OPEN SOURCE ----------
-\section*{Open Source}
+\section{TECHNICAL SKILLS}
+\textbf{Methods:} Audio language models; multimodal LLMs; RL post-training and distillation; diffusion and flow matching; VAE and latent representation design.\par\vspace{2pt}
+\textbf{Systems:} PyTorch, FSDP, DeepSpeed, Ray; multi-node distributed training and streaming inference.\par\vspace{2pt}
+\textbf{Programming:} Python, C++.
 
-\begin{itemize}[leftmargin=1.3em, itemsep=0.2ex, topsep=0.3ex]
-    \item \textbf{CosyVoice 2} (core contributor, 23.9K stars) --- multilingual streaming TTS. \\
-    \href{https://github.com/QwenAudio/CosyVoice}{github.com/QwenAudio/CosyVoice}
-    \item \textbf{ThinkSound \& PrismAudio} (project lead, 1,300+ stars) --- video-to-audio generation and reasoning. \\
-    \href{https://github.com/QwenAudio/ThinkSound}{github.com/QwenAudio/ThinkSound}
-    \item \textbf{AudioLCM} (project lead, 1,100+ stars) --- efficient text-to-audio generation. \\
-    \href{https://github.com/Text-to-Audio/AudioLCM}{github.com/Text-to-Audio/AudioLCM}
+\section{HONORS \& SERVICE}
+\begin{itemize}
+  \item \textbf{ACL 2025 Senior Area Chair Highlight} and Oral (FlashAudio); Oral at ACM MM 2025 (MEDIC); \textbf{ECCV 2026 Outstanding Reviewer}; National Scholarship (2023); Outstanding Graduate of Zhejiang Province (2024).
+  \item \textbf{Area Chair}, ACL Rolling Review (2026). \textbf{Reviewer} for NeurIPS, ICML, ICLR, ACL ARR, EMNLP, ECCV, ACM MM, AAAI, and IEEE/ACM TASLP.
 \end{itemize}
-
-%---------- HONORS ----------
-\section*{Honors \& Awards}
-
-\begin{itemize}[itemsep=0.05ex, topsep=0.3ex, leftmargin=1.3em]
-    \item \textbf{ACL 2025 SAC Highlight Award} --- Senior Area Chair top recommendation
-    \item \textbf{National Scholarship} (top 1\% nationally) \hfill 2023
-    \item \textbf{Outstanding Graduate of Zhejiang Province} \hfill 2024
-    \item \textbf{Outstanding Graduate of Zhejiang University} \hfill 2024
-\end{itemize}
-
-%---------- SERVICE ----------
-\section*{Academic Service}
-
-\begin{itemize}[itemsep=0.05ex, topsep=0.3ex, leftmargin=1.3em]
-    \item \textbf{Area Chair}, ACL Rolling Review \hfill 2026
-    \item \textbf{Outstanding Reviewer Award}, ECCV \hfill 2026
-    \item \textbf{Conference Reviewer:} NeurIPS, ICML, ICLR, ACL, EMNLP, CVPR, ECCV, AAAI, ACM Multimedia
-    \item \textbf{Journal Reviewer:} IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP)
-\end{itemize}
-
-%---------- SKILLS ----------
-\section*{Technical Skills}
-
-\begin{itemize}[itemsep=0.05ex, topsep=0.3ex, leftmargin=0em, label={}]
-    \item \textbf{Research Areas:} Audio and speech generation, multimodal learning and reasoning, diffusion and flow matching, reinforcement learning for generative models
-    \item \textbf{Engineering:} Large-scale distributed training (FSDP, DeepSpeed), PyTorch, scalable inference systems, production deployment
-\end{itemize}
-
 \end{document}
